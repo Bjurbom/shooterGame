@@ -7,7 +7,7 @@ namespace shooter_game
     class player
     {
         Texture2D texture;
-        Vector2 posistion, velocity;
+        protected Vector2 posistion, velocity;
 
         public player(Texture2D player, Vector2 posistion, Vector2 velocity)
         {
