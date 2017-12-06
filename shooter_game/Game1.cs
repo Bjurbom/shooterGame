@@ -11,7 +11,6 @@ namespace shooter_game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        Texture2D player;
         Vector2 position, velocity;
         player player1;
 
@@ -19,6 +18,9 @@ namespace shooter_game
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            graphics.PreferredBackBufferHeight = 1000;
+            graphics.PreferredBackBufferWidth = 1500;
         }
 
         /// <summary>
@@ -30,7 +32,7 @@ namespace shooter_game
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            
+
 
             position = new Vector2(1, 1);
             velocity = new Vector2(0, 0);
