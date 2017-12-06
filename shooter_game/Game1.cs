@@ -13,6 +13,7 @@ namespace shooter_game
         SpriteBatch spriteBatch;
         Texture2D player;
         Vector2 position, velocity;
+        player player1;
 
         public Game1()
         {
@@ -29,8 +30,13 @@ namespace shooter_game
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            
 
+            position = new Vector2(1, 1);
+            velocity = new Vector2(0, 0);
+            player1 = new player(Content.Load<Texture2D>("player"), position, velocity);
             base.Initialize();
+
         }
 
         /// <summary>
@@ -42,6 +48,7 @@ namespace shooter_game
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+           
             // TODO: use this.Content to load your game content here
         }
 
@@ -64,6 +71,7 @@ namespace shooter_game
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            player1.Update();
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -78,6 +86,10 @@ namespace shooter_game
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            spriteBatch.Begin();
+
+            player1.Draw(spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
